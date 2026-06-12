@@ -33,7 +33,7 @@ vim.g.maplocalleader = "\\"
 require("lazy").setup({
 	spec = {
 		
-		{ "ellisonleao/gruvbox.nvim", priority = 1000 , config = true, opts = ...},
+		--{ "ellisonleao/gruvbox.nvim", priority = 1000 , config = true, opts = ...},
 		
 		-- add your plugins here
 		'nvim-telescope/telescope.nvim', version = '*',
@@ -48,6 +48,12 @@ require("lazy").setup({
 
 		{'nvim-treesitter/nvim-treesitter',lazy=false,build = ':TSUpdate'},
 		{ 'nvim-mini/mini.nvim', version = false },
+		{'morhetz/gruvbox'},
+		{
+			'nvim-lualine/lualine.nvim',
+			dependencies = { 'nvim-tree/nvim-web-devicons' }
+		}
+	
 	},
 	-- Configure any other settings here. See the documentation for more details.
 	-- colorscheme that will be used when installing plugins.
