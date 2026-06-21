@@ -9,7 +9,14 @@ require('mini.completion').setup({})
 
 vim.lsp.config('clangd',{
 	cmd={'clangd'},filetype={'cpp'}})
-vim.lsp.enable({'clangd', 'rust_analyzer'})
+
+vim.lsp.enable({'clangd'})
+
+vim.lsp.config('rust',{
+	cmd={'rust-analyzer'},filetype={'rs'}})
+
+vim.lsp.enable({'rust'})
+
 
 vim.cmd("colorscheme gruvbox")
 -- Treesiter
