@@ -2,20 +2,33 @@ require("LazySetup")
 require("telescope")
 ------------ KeyMaps
 require("keymaps")
-require('lspconfig')
+require('lspconfig') --.clangd.setup({})
+
 
 require('mini.snippets').setup({})
 require('mini.completion').setup({})
 
-vim.lsp.config('clangd',{
-	cmd={'clangd'},filetype={'cpp'}})
 
-vim.lsp.enable({'clangd'})
+
+vim.lsp.config('clangd',{
+	on_attach = on_attach,
+	cmd = { "clangd"},
+	filetypes = {"c", "cpp"},
+	capabilities = capabilities
+
+})
+
 
 vim.lsp.config('rust',{
-	cmd={'rust-analyzer'},filetype={'rs'}})
+	on_attach = on_attach,
+	cmd={"rust-analyzer"},
+	filetype={"rs"},
+	capabilities = capabilities
+})
 
-vim.lsp.enable({'rust'})
+
+vim.lsp.enable({"clangd"}) 
+vim.lsp.enable({"rust"})
 
 
 vim.cmd("colorscheme gruvbox")
